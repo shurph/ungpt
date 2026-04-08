@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="theme-color" content="#ffffff" />
+  <meta name="description" content="Simplify fancy typography to plain web-style text" />
+  <meta name="application-name" content="UnGPT" />
+  <meta name="format-detection" content="telephone=no" />
+  <title>UnGPT: Unnecessary Garbage Pruner & Transformer,</title>
+
+  <link rel="canonical" href="https://shurph.github.io/ungpt/" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://shurph.github.io/ungpt/" />
+  <meta property="og:title" content="UnGPT — Unnecessary Garbage Pruner &amp; Transformer" />
+  <meta property="og:description" content="Simplify fancy typography to plain web-style text." />
+  <meta property="og:image" content="https://shurph.github.io/ungpt/icons/icon-512.png" />
+  <meta property="og:locale" content="en" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="UnGPT — Unnecessary Garbage Pruner &amp; Transformer" />
+  <meta name="twitter:description" content="Simplify fancy typography to plain web-style text." />
+  <meta name="twitter:image" content="https://shurph.github.io/ungpt/icons/icon-512.png" />
+
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-title" content="UnGPT" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+
+  <link rel="manifest" href="./manifest.webmanifest" />
+  <link rel="icon" href="./icons/icon-192.png" />
+  <link rel="apple-touch-icon" href="./icons/icon-192.png" />
+
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <main class="app">
+    <header class="app-header">
+      <button
+        type="button"
+        class="app-header__icon-btn"
+        id="headerQuickRunBtn"
+        aria-label="Paste from clipboard, simplify, and copy"
+      >
+        <img
+          class="app-header__icon"
+          src="./icons/icon-192.png"
+          alt=""
+          width="96"
+          height="96"
+          decoding="async"
+        />
+      </button>
+      <div class="app-header__text">
+        <h1 class="app-title">Unnecessary Garbage Pruner & Transformer</h1>
+        <p class="subtitle">
+          Turns polished typography into simple, everyday web-style text.
+        </p>
+      </div>
+    </header>
+
+    <section class="card">
+      
+
+
+      <div class="row row--toolbar">
+        <div class="row-toolbar-scroll">
+          <button id="pasteBtn" type="button">Paste</button>
+          <button id="simplifyBtn" type="button">Simplify</button>
+          <button id="clearBtn" type="button">Clear</button>
+        </div>
+        <div class="settings-wrap">
+          <button
+            id="settingsBtn"
+            type="button"
+            aria-expanded="false"
+            aria-controls="settingsPanel"
+            aria-haspopup="true"
+            alt="Settings"
+            title="Settings"
+          >
+            ⚙️
+          </button>
+          <div id="settingsPanel" class="settings-panel" role="region" aria-label="Settings" hidden>
+            <div class="options">
+              <label class="checkbox-label">
+                <input id="rmMarkdown" type="checkbox" checked />
+                Strip markdown
+              </label>
+              <label class="checkbox-label">
+                <input id="rmEmoji" type="checkbox" checked />
+                Remove emoji
+              </label>
+              <label class="checkbox-label checkbox-label--multiline" for="trimLineWhitespace">
+                <input id="trimLineWhitespace" type="checkbox" checked />
+                <span>Trim leading and trailing whitespace on every line</span>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <textarea id="inputText" placeholder="Paste or type text here"></textarea>
+    </section>
+
+    <section class="card">
+        <div class="row">
+          <button id="copyBtn" type="button">Copy</button>
+        </div>
+      <textarea id="outputText" placeholder="Result appears here"></textarea>
+
+    </section>
+
+    <section class="card">
+      <details>
+        <summary>What this does</summary>
+        <ul>
+          <li>— / – → " - "</li>
+          <li>“ ” „ « » → "</li>
+          <li>‘ ’ → '</li>
+          <li>… → ...</li>
+          <li>non-breaking spaces → normal spaces</li>
+          <li>collapse runs of spaces</li>
+          <li>fix spacing around punctuation</li>
+          <li>optional: strip markdown (** / *, _italic_, * bullets → -)</li>
+          <li>optional: remove emoji (runs first when enabled, then the rest)</li>
+          <li>optional: trim each line’s edges — last step after typography</li>
+        </ul>
+      </details>
+    </section>
+
+    <p id="status" class="status" aria-live="polite"></p>
+  </main>
+
+  <script src="./app.js"></script>
+</body>
+</html>

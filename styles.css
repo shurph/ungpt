@@ -1,0 +1,304 @@
+:root {
+    color-scheme: light dark;
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+  
+  body {
+    margin: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: #f5f5f5;
+    color: #111;
+  }
+  
+  .app {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 16px;
+  }
+  
+  .app-header {
+    display: flex;
+    align-items: center;
+    gap: 18px 22px;
+    margin-bottom: 16px;
+  }
+
+  .app-header__icon-btn {
+    padding: 0;
+    margin: 0;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    flex-shrink: 0;
+    border-radius: 22px;
+    line-height: 0;
+    display: block;
+  }
+
+  a.app-header__icon-btn {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .app-header__icon-btn:focus-visible {
+    outline: 2px solid #333;
+    outline-offset: 3px;
+  }
+
+  .app-header__icon-btn:hover .app-header__icon {
+    opacity: 0.92;
+  }
+
+  .app-header__icon {
+    width: 96px;
+    height: 96px;
+    display: block;
+    border-radius: 22px;
+    object-fit: contain;
+  }
+
+  .app-header__text {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .app-title {
+    margin: 0 0 6px;
+    font-size: 22px;
+    line-height: 1.2;
+  }
+
+  .subtitle {
+    margin: 0;
+    opacity: 0.8;
+    line-height: 1.4;
+  }
+
+  @media (max-width: 480px) {
+    .app-title {
+        font-size: 18px;
+    }
+    .subtitle {
+        font-size: 14px;
+    }
+    .app-header__icon-btn {
+      border-radius: 16px;
+    }
+
+    .app-header__icon {
+      width: 72px;
+      height: 72px;
+      border-radius: 16px;
+    }
+
+    .app-header {
+      gap: 14px 16px;
+    }
+  }
+  
+  .card {
+    background: #fff;
+    border-radius: 14px;
+    padding: 1px 14px;
+    margin-bottom: 16px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+  }
+  
+  textarea {
+    width: 100%;
+    min-height: 120px;
+    resize: vertical;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font: inherit;
+    line-height: 1.45;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .settings-wrap {
+    position: relative;
+  }
+
+  .settings-panel {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    z-index: 20;
+    min-width: min(100vw - 32px, 320px);
+    max-width: min(100vw - 32px, 400px);
+    padding: 14px;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    box-shadow: 0 10px 32px rgba(0, 0, 0, 0.14);
+  }
+
+  .settings-panel .options {
+    margin-top: 0;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  /* Toolbar: first three actions left, settings right; scroll only the left group so the dropdown isn’t clipped. */
+  .row--toolbar {
+    flex-wrap: nowrap;
+    align-items: center;
+  }
+
+  .row-toolbar-scroll {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: 10px;
+    min-width: 0;
+    flex: 0 1 auto;
+  }
+
+  .row-toolbar-scroll > button {
+    flex-shrink: 0;
+  }
+
+  .row--toolbar .settings-wrap {
+    flex-shrink: 0;
+    margin-left: auto;
+  }
+
+  @media (max-width: 640px) {
+    .row-toolbar-scroll {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: thin;
+    }
+
+    .row--toolbar .settings-panel {
+      left: auto;
+      right: 0;
+      width: min(calc(100vw - 48px), 400px);
+      max-width: none;
+    }
+  }
+
+  .options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px 20px;
+    align-items: center;
+  }
+
+  .checkbox-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 500;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .checkbox-label input {
+    width: 1.1em;
+    height: 1.1em;
+    accent-color: #333;
+  }
+
+  .checkbox-label--multiline {
+    align-items: flex-start;
+    max-width: 100%;
+  }
+
+  .checkbox-label--multiline input {
+    margin-top: 0.2em;
+    flex-shrink: 0;
+  }
+
+  .row {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 12px;
+  }
+
+  label {
+    display: inline-block;
+    font-weight: 600;
+    margin: 0;
+    padding: 0;
+  }
+  
+  button {
+    border: 0;
+    border-radius: 10px;
+    padding: 10px 14px;
+    font: inherit;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    opacity: 0.92;
+  }
+
+  summary {
+    cursor: pointer;
+  }
+
+  details {
+    padding: 10px;
+  }
+  
+  .status {
+    min-height: 1.5em;
+    opacity: 0.8;
+    display: none;
+  }
+  
+  ul {
+    margin: 10px 0 0;
+    padding-left: 20px;
+  }
+  
+  @media (prefers-color-scheme: dark) {
+    body {
+      background: #121212;
+      color: #eee;
+    }
+  
+    .card {
+      background: #1e1e1e;
+      box-shadow: none;
+    }
+  
+    textarea {
+      background: #111;
+      color: #eee;
+      border-color: #444;
+    }
+  
+    button {
+      background: #2c2c2c;
+      color: #eee;
+    }
+
+    .app-header__icon-btn {
+      background: transparent;
+      color: inherit;
+    }
+
+    .app-header__icon-btn:focus-visible {
+      outline-color: #bbb;
+    }
+
+    .checkbox-label input {
+      accent-color: #bbb;
+    }
+
+    .settings-panel {
+      background: #1e1e1e;
+      border-color: #444;
+      box-shadow: 0 10px 36px rgba(0, 0, 0, 0.45);
+    }
+  }
